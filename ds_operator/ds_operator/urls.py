@@ -19,4 +19,5 @@ import board.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/',include('board.urls')),
+    path('',include('info.urls')),
 ]
