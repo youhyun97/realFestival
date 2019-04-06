@@ -1,6 +1,9 @@
+<!-- 한 페이지 상세내용 -->
 <div class="container">
-    <a href="{% url 'home' %}">뒤로</a>
+    <a href="{% url 'show' %}">뒤로</a>
+    
     <h1>{{ board.title }}</h1>
-    <p>{{ board.pub_date }}</p>
-    <p>{{ board.body }}</p>
+    <p><img style="width:200px; height:200px;" src="{{ board.file.url }}" alt=""></p>
+    <p>{{ board.updated_at }}</p>
+    <a id="id_uploaded_file" href="{{ board.file.url }}" download>다운로드</a>
 </div>
