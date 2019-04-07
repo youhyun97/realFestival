@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/',include('board.urls')),
+    path('',include('info.urls')),
 ]
 
 if settings.DEBUG:
