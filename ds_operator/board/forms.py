@@ -1,7 +1,17 @@
 from django import forms
 from .models import Board
 
-class BoardPost(forms.ModelForm):
+class BoardForm(forms.ModelForm):
     class Meta:
         model = Board
-        fields = ['title','body']
+        fields = ['file', 'title']
+
+        def __init__(self, *args, **kwargs):
+            super(PostForm, self).__init__(*args, **kwargs)
+            self.fields['file'].required = False
+
+# class ImageForm(forms.ModelForm):
+#     image = forms.ImageField(label='Image') 
+#     class Meta:
+#         model = Images
+#         fields = ('image', )
