@@ -49,12 +49,19 @@ def boardpost(request):
         return render(request, 'post.html', {'form':form})
 
 def delete(request, board_id):
-    board = Board.objects.get(pk=board_id)
-    if request.method == 'POST':
-        if board.pwd == str(request.GET['passwd']):
+        board = Board.objects.get(pk=board_id)
+        if board.pwd==request.GET['passwd']:
                 board.delete()
-                return redirect('/board/show')
-        
-
+                return redirect('show')
+        else:
+                return redirect('show')
+                #return render(request, 'show.html')
+    
+    #if request.method == 'GET':
+     #   if board.pwd == request.POST.get('pwd',''):
+      #          board.delete()
+       #         return HttpResponseRedriect('show.html')
+        #else:
+         #       return render(request, 'show.html')
 
 
