@@ -5,5 +5,11 @@
     <h1>{{ board.title }}</h1>
     <p><img style="width:200px; height:200px;" src="{{ board.file.url }}" alt=""></p>
     <p>{{ board.updated_at }}</p>
+    <p>삭제하려면 비밀번호 입력하고 삭제버튼 클릭</p>
+    <form method="get" action="{% url 'delete' board.id %}">
+        {% comment %} {% csrf_token %}  {% endcomment %}
+        <input type="password" name="passwd" required>
+        <input type="submit" value="삭제">
+    </form>
     <a id="id_uploaded_file" href="{{ board.file.url }}" download>다운로드</a>
 </div>
