@@ -29,6 +29,7 @@ def create(request): #입력받은 내용을 데이터베이스에 넣어주는 
         board = Board()
         board.title = request.GET['title']
         board.updated_at = timezone.datetime.now()
+        board.pwd = request.GET['pwd']
         board.save() #객채.delete()도 있다.
         return redirect('/board/'+str(board.id)) #redirect안에 url을 써줘야함.
         # board id는 int형. url은 string. 따라서 문자열로 형변환해줌
@@ -46,3 +47,23 @@ def boardpost(request):
     else:
         form = BoardForm()
         return render(request, 'post.html', {'form':form})
+
+def delete(request, board_id):
+        board = Board.objects.get(pk=board_id)
+        if board.pwd==request.GET['passwd']:
+                board.delete()
+                return redirect('show')
+        else:
+                return redirect('show')
+
+
+#return render(request, 'show.html')
+   
+    #if request.method == 'GET':
+     #   if board.pwd == request.POST.get('pwd',''):
+      #          board.delete()
+       #         return HttpResponseRedriect('show.html')
+        #else:
+         #       return render(request, 'show.html')
+
+

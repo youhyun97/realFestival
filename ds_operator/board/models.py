@@ -8,6 +8,8 @@ class Board(models.Model):
                                     blank=True,
                                     related_name='like_user_set',
                                     through='Like')
+    pwd = models.CharField(max_length=10, null=False, default="0000") # 비밀번호
+
     def __str__(self):
         return self.title
 
