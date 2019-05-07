@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+# d-day
+def dday(request):
+    return render(request,'Dday.html')
+
 # 메인페이지 
 def main(request):
     return render(request,'main.html')
