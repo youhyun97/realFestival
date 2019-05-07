@@ -55,15 +55,3 @@ def delete(request, board_id):
                 return redirect('show')
         else:
                 return redirect('show')
-
-
-#return render(request, 'show.html')
-   
-    #if request.method == 'GET':
-     #   if board.pwd == request.POST.get('pwd',''):
-      #          board.delete()
-       #         return HttpResponseRedriect('show.html')
-        #else:
-         #       return render(request, 'show.html')
-
-
