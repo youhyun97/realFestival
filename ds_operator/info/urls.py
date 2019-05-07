@@ -8,5 +8,5 @@ urlpatterns = [
     path('notice', views.notice),
     path('timetable', views.timetable),
     path('detail', views.detail),
-
+    #path('',views.dday, name='dday'),
 ]
