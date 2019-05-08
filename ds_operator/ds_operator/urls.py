@@ -24,7 +24,7 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     #path('board/',include('board.urls')),
     path('',include('info.urls')),
-    path('stamp/',include('stamp.urls')),
+    #path('stamp/',include('stamp.urls')),
 ]
 
 if settings.DEBUG:
