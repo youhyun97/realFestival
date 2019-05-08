@@ -1,0 +1,11 @@
+
+body{
+    
+}
+.eventbg{
+    
+    background-image:url("../eventbg.png");
+    background-repeat:no-repeat;
+    min-width:100%;
+    width: 100vw;
+}
