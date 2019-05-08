@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import board.views
+import stamp.views
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -23,6 +24,7 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     #path('board/',include('board.urls')),
     path('',include('info.urls')),
+    path('stamp/',include('stamp.urls')),
 ]
 
 if settings.DEBUG:
