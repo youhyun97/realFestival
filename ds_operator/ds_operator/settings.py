@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'stamp.apps.StampConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,3 +132,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+# 지연 : 세션
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False 
+SESSION_COOKIE_AGE = 20 # 지연 : 20초 동안 유지
