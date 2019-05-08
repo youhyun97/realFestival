@@ -1,3 +1,5 @@
+{%load static%}
+
 <!--bootstrap 추가-->
 <head>
     <!--Font-->
@@ -10,7 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <style>
-        html, body{ margin:0; padding: 0; height:100%}
+        html, body{ margin:0; padding: 0; height:100%; width: 100%;}
         @font-face { 
                     font-family: 'HSBombaram'; 
                     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSBombaram.woff') format('woff'); 
@@ -24,9 +26,9 @@
                     font-style: normal; 
                     }
         #header{
-                margin-top: 2em;
                 margin-bottom: 1em;
                 position: sticky;
+                padding-top: 3em;
         }
        .hundred{
                 color: #ff3300;
@@ -53,12 +55,15 @@
                 text-decoration-line: underline;
                 text-decoration-color: #ff3300;
        }
-       div.container#footer{
+       div#footer{
                             background-color: #323232;
                             color: #ffffff;
                             font-family: 'Nanum Square';
                             text-align: left;
                             padding: 1.5em;
+                            position: absolute;
+                            width: 100%
+
                             }
         h3.title_m{  font-weight: 700; font-size: 1.5em; margin-right: 1.5em; }
         h4.title_s{  font-weight: 400; font-size: 1em;  margin: 0.4em; margin-left:0;}
@@ -75,12 +80,12 @@
         #logo>h5.content{ font-size: 0.6em;}
         #rightside{vertical-align: center;}
         /*footer 하단 고정*/
-        div.container.contents{ min-height: 76%}
+        div.contents{ min-height: 80%;}
     </style>
 </head>
 
 <!--header-->
-<div class="container" id="header">
+<div id="header">
     <!--title-->
     <h1 class="hundred" id="flower">백일화</h1>
     <h2 class="hundred" id="since2019">since 2019</h2>
@@ -98,13 +103,13 @@
 </div>
 
 <!--contents-->
-<div class="container contents">
+<div class="contents">
     {% block content %}
     {% endblock %}
 </div>
 
 <!--footer-->
-<div class="container" id="footer">
+<div id="footer">
     <div class="row">
         <!--leftside-->
         <div class="side col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -143,7 +148,7 @@
             <!--logo-->
             <div class="box" id="logo">
                 <div class="row" id="logo">
-                    <img src="media/logo.png" alt="logo" class="logo">
+                    <img src="{% static 'logo.png' %}" alt="logo" class="logo">
                     <div class="box" id="logo">
                         <H1 class="logo">LIKELION DUKSUNG</H1>
                         <h5 class="content">Copyright (c) 덕성멋쟁이사자처럼.All right reserved</h5>
