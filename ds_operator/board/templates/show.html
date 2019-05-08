@@ -1,46 +1,38 @@
 <!-- 글 전체 보기 -->
 <head>
-        <style>
-            .container1{
-                width:40%;
-                float:left;
-            }
-            .container2{
-                clear:both;
-            }
-        </style>
-    </head>
+    <style>
+        .container{
+            background-color: #FFFFFF;
+            box-shadow: 2px 2px 3px gray ;
+            margin-left: 5%; margin-right: 5%;
+        }
+        img{
+            padding-left: 75%;
+            padding-top: 3%;
+        }
+        .big{display:inline;}
+    </style>
+</head>
 <body>
-    <div class="container">
-        <h1>축제 글</h1>
-        {%for board in posts%}
-        <div class="container1">
-            <a href="{% url 'detail' board.id %}">
-                <img style="width:200px; height:200px;" src="{{ board.file.url }}" alt="">
-            </a>
-            <h5>{{board.title}}</h5>
+    <div class="container1">
+        <h4><a href="{% url 'post' %}">글쓰기</a></h4>
+        {%for board in boards.all%}
+        <div class="container">
+            <div class="big">
+                <div class="title">{{board.title}}</div>
+                <div class="i">
+                <a href="{% url 'detail' board.id %}">
+                    {% if board.file %}
+                    <img style="width:12em; height:11em;" src="{{board.file.url}}" alt="">
+                    {% endif %}
+                </a>
+                </div>
+            </div>
             <small class="text-muted">{{board.pub_date}}</small>
         </div>
         {%endfor%}
     
-        {#First Previous 3of4 Next Last#}
-        <div class="container2">
-        {#First Previous#}
-        {%if posts.has_previous%}
-        <a href="?page=1">First</a>
-        <a href="?page={{posts.previous_page_number}}">Previous</a>
-        {%endif%}
-        {# 3of4 #}
-        <span>{{posts.number}}</span>
-        <span>of</span>
-        <span>{{posts.paginator.num_pages}}</span>
-        {#Next Last#}
-        {%if posts.has_next%}
-        <a href="?page={{posts.next_page_number}}">Next</a>
-        <a href="?page={{posts.paginator.num_pages}}">Last</a>
-        {%endif%}
-        </div>
     </div>
-    </body>
+</body>
     
     
